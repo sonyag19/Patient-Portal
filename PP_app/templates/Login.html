@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <style>
+        #form{
+        width:500px;
+        height:500px;
+        background-color: white;
+        padding-top:100px;
+        }
+
+        		.top-left {
+  position: absolute;
+  top: 100px;
+  left: 900px;
+
+}
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://kit.fontawesome.com/081cab5b4f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+{% include 'Navbar.html' %}
+<div class="container-fluid">
+            <img src="{% static 'login_page.jpg' %}" alt="" style="width: 100%; height:735px">
+            <div class="top-left">
+                <div id="form" align="center">
+                    <form class="login-form" method="post">{% csrf_token %}
+                        <br><br>
+                        <h3>Welcome to MyChart</h3><br>
+                        <h5>SignIn/SignUp</h5><br>
+                        <label>Your Email ID</label><br>
+                      <input type="text" name="email" placeholder="E-Mail ID"/><br><br>
+                        <label>Password</label><br>
+                      <input type="password" name="password" placeholder="password"/><br><br>
+                      <button type="submit">login</button><br><br>
+                      <p class="message">New User? <a href="http://127.0.0.1:8000/PP_app/register/">Sign Up Now</a></p>
+                    </form>
+                </div>
+            </div>
+</div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <style>
+        form{
+            margin-left:600px;
+            margin-top:50px;
+            }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include 'Navbar.html' %}
+<h1 align="center">EDIT PROFILE</h1>
+<form method="POST" enctype="multipart/form-data" >{% csrf_token %}
+    <input type="file" name="photo"><br><br>
+    {% if prod.photo %}
+        <img src="/static/{{li}}" width="200px" height="200px">
+    {% endif %}
+    <br><br>
+    <input type="text" name="fname" placeholder="First Name" value="{{prod.fname}}"><br><br>
+    <input type="text" name="lname" placeholder="Last Name" value="{{prod.lname}}"><br><br>
+    <input type="number" name="phone" placeholder="Phone Number" value="{{prod.phone}}"><br><br>
+    <input type="email" name="email" placeholder="Email ID" value="{{prod.email}}"><br><br>
+    <input type="text" name="addr1" placeholder="Address 1 " value="{{prod.addr1}}"><br><br>
+    <input type="text" name="addr2" placeholder="Address 2" value="{{prod.addr2}}"><br><br>
+    <input type="text" name="city" placeholder="City " value="{{prod.city}}"><br><br>
+    <input type="text" name="country" placeholder="Country " value="{{prod.country}}"><br><br>
+    <input type="number" name="zip" placeholder="Zip " value="{{prod.zip}}"><br><br>
+
+    <button type="submit" class="btn btn-warning">UPDATE</button><br><br>
+
+<a href="">Back to Home</a>
+</form>
+{% include 'footer.html' %}
+</body>
+</html>
